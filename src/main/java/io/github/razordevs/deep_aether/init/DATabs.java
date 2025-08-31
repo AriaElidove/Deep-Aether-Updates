@@ -4,8 +4,6 @@ import com.aetherteam.aether.block.AetherBlocks;
 import com.aetherteam.aether.item.AetherCreativeTabs;
 import com.aetherteam.aether.item.AetherItems;
 import com.aetherteam.protect_your_moa.item.ProtectItems;
-import com.aetherteam.treasure_reforging.block.ReforgingBlocks;
-import com.aetherteam.treasure_reforging.item.ReforgingItems;
 import io.github.razordevs.deep_aether.DeepAether;
 import io.github.razordevs.deep_aether.item.component.DADataComponentTypes;
 import io.github.razordevs.deep_aether.item.component.MoaFodder;
@@ -208,13 +206,13 @@ public class DATabs {
                     DABlocks.AETHER_MUD_BRICKS_WALL.get(),
             }, event);
 
-            addToTab(AetherBlocks.ZANITE_BLOCK.get().asItem(), DABlocks.SKYJADE_BLOCK.get().asItem(), event);
+            addToTab(AetherBlocks.ZANITE_BLOCK.get().asItem(),
+                    DABlocks.SKYJADE_BLOCK.get().asItem(), event);
 
-            addToTab(AetherBlocks.ENCHANTED_GRAVITITE.get().asItem(), DABlocks.STRATUS_BLOCK.get().asItem(), event);
-
-            if(ModList.get().isLoaded(DeepAether.TREASURE_REFORGING)) {
-                addToTab(ReforgingBlocks.PYRAL_BLOCK.asItem(), DABlocks.SQUALL_BLOCK.asItem(), event);
-            }
+            addToTab(AetherBlocks.ENCHANTED_GRAVITITE.get().asItem(), new Block[]{
+                    DABlocks.STRATUS_BLOCK.get(),
+                    DABlocks.SQUALL_BLOCK.get(),
+            }, event);
         }
 
         if (tab == AetherCreativeTabs.AETHER_NATURAL_BLOCKS.getKey()) {
@@ -396,12 +394,7 @@ public class DATabs {
                     DAItems.MUSIC_DISC_ATTA.get(),
                     DAItems.MUSIC_DISC_FAENT.get(),
                     DAItems.MUSIC_DISC_HIMININN.get()
-
             }, event);
-
-            if(ModList.get().isLoaded(DeepAether.TREASURE_REFORGING)) {
-                addToTab(ReforgingItems.PHOENIX_UPGRADE_SMITHING_TEMPLATE.asItem(), DAItems.STORMFORGED_SMITHING_TEMPLATE.asItem(), event);
-            }
         }
 
         if (tab == AetherCreativeTabs.AETHER_ARMOR_AND_ACCESSORIES.getKey()) {
@@ -487,6 +480,7 @@ public class DATabs {
             addToTab(AetherBlocks.ENCHANTED_GRAVITITE.get().asItem(), new Item[]{
                     DAItems.STRATUS_INGOT.get(),
                     DABlocks.CHROMATIC_AERCLOUD.get().asItem(),
+                    DAItems.SQUALL_PLATE.get(),
             }, event);
 
             addToTab(AetherItems.GOLDEN_AMBER.get(), new Item[]{
@@ -498,12 +492,9 @@ public class DATabs {
             addToTab(AetherItems.SWET_BALL.get(), new Item[]{
                     DAItems.QUAIL_EGG.get(),
                     DAItems.BIO_CRYSTAL.get(),
-                    DAItems.STRATUS_SMITHING_TEMPLATE.get()
+                    DAItems.STRATUS_SMITHING_TEMPLATE.get(),
+                    DAItems.STORMFORGED_SMITHING_TEMPLATE.asItem()
             }, event);
-
-            if(ModList.get().isLoaded(DeepAether.TREASURE_REFORGING)) {
-                addToTab(ReforgingItems.PYRAL_INGOT.asItem(), DAItems.SQUALL_PLATE.asItem(), event);
-            }
         }
 
         if (tab == AetherCreativeTabs.AETHER_SPAWN_EGGS.getKey()) {

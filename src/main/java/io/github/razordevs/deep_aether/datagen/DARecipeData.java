@@ -787,6 +787,20 @@ public class DARecipeData extends AetherRecipeProvider {
                 .unlockedBy(getHasName(DAItems.PLACEABLE_POISON_BUCKET.get()), has(DAItems.PLACEABLE_POISON_BUCKET.get()))
                 .save(consumer);
 
+        // Squall Plates
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, DABlocks.SQUALL_BLOCK.get())
+                .define('A', DAItems.SQUALL_PLATE.get())
+                .pattern("AAA")
+                .pattern("AAA")
+                .pattern("AAA")
+                .unlockedBy(getHasName(DAItems.SQUALL_PLATE.get()), has(DAItems.SQUALL_PLATE.get()))
+                .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, DAItems.SQUALL_PLATE.get(), 9)
+                .requires(DABlocks.SQUALL_BLOCK.get())
+                .unlockedBy(getHasName(DAItems.SQUALL_PLATE.get()), has(DAItems.SQUALL_PLATE.get()))
+                .save(consumer, name("squall_from_squall_block"));
+
         // Treasure Reforging Compat
         copyTemplate(consumer, DAItems.STORMFORGED_SMITHING_TEMPLATE.get(), DABlocks.NIMBUS_STONE.get());
         copyTemplateGravitite(consumer, DAItems.STORMFORGED_SMITHING_TEMPLATE.get(), DABlocks.NIMBUS_STONE.get());
